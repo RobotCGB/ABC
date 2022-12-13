@@ -51,6 +51,8 @@ public class Cli {
 
             case "com" -> controlador.anadirCom();
 
+            default -> vista.showError();
+
         }
 
     }
@@ -65,6 +67,8 @@ public class Cli {
 
             case "com" -> vista.showComs();
 
+            default -> vista.showError();
+
         }
 
     }
@@ -78,6 +82,8 @@ public class Cli {
             case "eq" -> controlador.editarEq();
 
             case "com" -> controlador.editarCom();
+
+            default -> vista.showError();
 
         }
 
