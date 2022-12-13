@@ -1,13 +1,17 @@
 package Consola;
 
+import Modelos.Combate;
+import Modelos.Equipo;
+import Modelos.Personaje;
 import Servicios.Controlador;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cli {
 
-    Vista vista = new Vista();
     Controlador controlador = new Controlador();
+    Scanner sc = new Scanner(System.in);
 
     public Cli(){
 
@@ -16,11 +20,10 @@ public class Cli {
     public void run(){
 
         String comando;
-        Scanner sc = new Scanner(System.in);
 
-        vista.showBienvenida();
+        Vista.showBienvenida();
         do{
-            vista.pedirComando();
+            Vista.setMessage("Escribe que quieres hacer: ");
             comando = sc.next();
             switch (comando){
 
@@ -30,11 +33,11 @@ public class Cli {
 
                 case "editar" -> editarAlgo(sc.next());
 
-                case "help" -> vista.showHelp();
+                case "help" -> Vista.showHelp();
 
-                case "salir" -> vista.showDespedida();
+                case "salir" -> Vista.showDespedida();
 
-                default -> vista.showError();
+                default -> Vista.showError();
             }
 
         } while(!comando.equals("salir"));
@@ -45,13 +48,13 @@ public class Cli {
 
         switch (comando){
 
-            case "pj" -> controlador.anadirPj();
+            case "pj" -> controlador.anadirPj(sc);
 
             case "eq" -> controlador.anadirEq();
 
             case "com" -> controlador.anadirCom();
 
-            default -> vista.showError();
+            default -> Vista.showError();
 
         }
 
@@ -61,13 +64,13 @@ public class Cli {
 
         switch (comando){
 
-            case "pj" -> vista.showPjs();
+            case "pj" -> Vista.setMessage(controlador.pullPersonajes.toString());
 
-            case "eq" -> vista.showEqs();
+            //case "eq" -> Vista.showEqs();
 
-            case "com" -> vista.showComs();
+            //case "com" -> Vista.showComs();
 
-            default -> vista.showError();
+            default -> Vista.showError();
 
         }
 
@@ -77,13 +80,13 @@ public class Cli {
 
         switch (comando){
 
-            case "pj" -> controlador.editarPj();
+            case "pj" -> controlador.editarPj(sc);
 
             case "eq" -> controlador.editarEq();
 
             case "com" -> controlador.editarCom();
 
-            default -> vista.showError();
+            default -> Vista.showError();
 
         }
 

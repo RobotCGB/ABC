@@ -1,20 +1,18 @@
 package Consola;
 
+import Servicios.Controlador;
+
 public class Vista {
 
-    public void showBienvenida(){
+    public static void showBienvenida(){
         System.out.println("Te doy la bienvenida a Anima Battle Calculator.");
     }
 
-    public void showError(){
+    public static void showError(){
         System.out.println("Algo no ha salido como se esperaba");
     }
 
-    public void pedirComando() {
-        System.out.println("Escribe que quieres hacer: ");
-    }
-
-    public void showHelp(){
+    public static void showHelp(){
         System.out.println("Estos son los posibles comandos: ");
         System.out.println("- 'anadir X'");
         System.out.println("- 'ver X'");
@@ -24,20 +22,17 @@ public class Vista {
         System.out.println("(X puede ser sustituido por 'pj', 'eq' y 'com')");
     }
 
-    public void showDespedida(){
+    public static void showDespedida(){
         System.out.println("Adios");
     }
 
-    public void showPjs(){
-        System.out.println();
+
+    public static void setMessage(String message){
+        System.out.println(message);
     }
 
-    public void showEqs(){
-        System.out.println();
-    }
-
-    public void showComs(){
-        System.out.println();
+    public static void setPedir(String pedir){
+        System.out.println("Escribe " + pedir + " pedido/a: ");
     }
 
 

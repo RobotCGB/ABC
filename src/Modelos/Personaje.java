@@ -13,6 +13,9 @@ public class Personaje {
     int[] TA;
     int critico;
 
+    public Personaje() {
+    }
+
     public Personaje(String nombre, int salud, int HAbase, int HDbase, int turnoBase, int danoBase, int[] TA, int critico){
         this.nombre = nombre;
         this.salud = salud;
@@ -92,9 +95,14 @@ public class Personaje {
         this.critico = critico;
     }
 
-    @Override
+    public void setTAindex(int valor, int index){
+        this.TA[index] = valor;
+    }
+
     public String toString(){
-        return nombre;
+        return nombre + ": Vida-> " + salud + "; HA-> " + HAbase + "; HD-> " + HDbase + "; Dano-> " + danoBase + "; Turno-> " + turnoBase + "\n" +
+                "FIL-> " + TA[0] + "; CON-> " + TA[1] + "; PEN-> " + TA[2] + "; CAL-> " + TA[3] + "; FRI-> " +
+                TA[4] + "; ELE-> " + TA[5] + "; ENE-> " + TA[6] + "; Critico-> " + critico + "\n";
     }
 
     public Personaje clona(){
