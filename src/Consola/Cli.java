@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class Cli {
 
-    Controlador controlador = new Controlador();
-    Scanner sc = new Scanner(System.in);
+    public static Controlador controlador = new Controlador();
+    private final Scanner sc = new Scanner(System.in);
 
     public Cli(){
 
@@ -35,7 +35,7 @@ public class Cli {
 
                 case "help" -> Vista.showHelp();
 
-                case "salir" -> Vista.showDespedida();
+                case "salir" -> Vista.setMessage("Adios");
 
                 default -> Vista.showError();
             }
@@ -50,9 +50,9 @@ public class Cli {
 
             case "pj" -> controlador.anadirPj(sc);
 
-            case "eq" -> controlador.anadirEq();
+            case "eq" -> controlador.anadirEq(sc);
 
-            case "com" -> controlador.anadirCom();
+            case "com" -> controlador.anadirCom(sc);
 
             default -> Vista.showError();
 
@@ -64,11 +64,11 @@ public class Cli {
 
         switch (comando){
 
-            case "pj" -> Vista.setMessage(controlador.pullPersonajes.toString());
+            case "pj" -> Vista.mostrarPersonajes();
 
-            //case "eq" -> Vista.showEqs();
+            case "eq" -> Vista.mostrarEquipos();
 
-            //case "com" -> Vista.showComs();
+            //case "com" -> Vista.mostrarCombates();
 
             default -> Vista.showError();
 

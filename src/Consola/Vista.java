@@ -2,6 +2,8 @@ package Consola;
 
 import Servicios.Controlador;
 
+import static Consola.Cli.controlador;
+
 public class Vista {
 
     public static void showBienvenida(){
@@ -22,10 +24,17 @@ public class Vista {
         System.out.println("(X puede ser sustituido por 'pj', 'eq' y 'com')");
     }
 
-    public static void showDespedida(){
-        System.out.println("Adios");
+    public static void mostrarPersonajes(){
+        System.out.println(controlador.pullPersonajes.toString());
     }
 
+    public static void mostrarEquipos(){
+        System.out.println(controlador.pullEquipos.toString());
+    }
+
+    public static void mostrarCombates(){
+        //System.out.println();
+    }
 
     public static void setMessage(String message){
         System.out.println(message);

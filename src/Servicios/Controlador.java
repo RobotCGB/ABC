@@ -4,6 +4,7 @@ import Consola.Vista;
 import Modelos.*;
 import jdk.jshell.execution.Util;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controlador {
@@ -46,11 +47,29 @@ public class Controlador {
         pullPersonajes.add(new Personaje(nombre, salud, HA, HD, turno, danoBase, TA, critico));
     }
 
-    public void anadirEq() {
-
+    public void anadirEq(Scanner teclado) {
+        Equipo eq = new Equipo(preguntarNombreEq(teclado), preguntarComponentesEq(teclado));
+        eq.combinar(preguntarMasillas());
     }
 
-    public void anadirCom() {
+    private String preguntarNombreEq(Scanner teclado){
+        String nombreEq = Utilidades.pedirString(teclado, "nombre equipo");
+        if(nombreEq.equals("default"))
+            nombreEq = "Eq " + pullEquipos.size();
+        return nombreEq;
+    }
+
+    private ArrayList<Personaje> preguntarComponentesEq(Scanner teclado){
+
+        return null;
+    }
+
+    private ArrayList<Personaje> preguntarMasillas(){
+
+        return null;
+    }
+
+    public void anadirCom(Scanner teclado) {
 
     }
 

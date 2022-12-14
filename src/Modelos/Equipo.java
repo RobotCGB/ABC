@@ -7,7 +7,6 @@ public class Equipo {
 
     private String nombre;
     private ArrayList<Personaje> party;
-    private Vista view = new Vista();
 
     public Equipo(String nombre, ArrayList<Personaje> party){
         this.nombre = nombre;
@@ -17,6 +16,22 @@ public class Equipo {
     public Equipo(){
         this.nombre = "vacio";
         this.party = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public ArrayList<Personaje> getParty() {
+        return party;
+    }
+
+    public boolean add(Personaje pj){
+        return party.add(pj);
+    }
+
+    public void combinar(ArrayList<Personaje> list){
+        party.addAll(list);
     }
 
 }
